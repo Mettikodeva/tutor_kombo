@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="rate" default="1"/> <!-- in hertz -->
+    <node name="publisher_node" pkg="tutor" type="pembicara" output="screen" args="$(arg rate)"/>
+    <node name="subscriber_node" pkg="tutor" type="pendengar" output="screen" />
+</launch>

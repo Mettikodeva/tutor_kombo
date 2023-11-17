@@ -44,8 +44,12 @@ int main(int argc, char **argv)
    * buffer up before throwing some away.
    */
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
-
-  ros::Rate loop_rate(10);
+  int rate_val = 1;
+  if(argc>1){
+    rate_val = atoi(argv[1]);
+  }
+  ros::Rate loop_rate(rate_val);
+  
 
   /**
    * A count of how many messages we have sent. This is used to create
@@ -67,8 +71,8 @@ int main(int argc, char **argv)
 
     msg.data = ss.str();
     // msg.data = s;
-
-    ROS_INFO("%s", msg.data.c_str());
+    
+    ROS_INFO("%s%s","ini publisher ",  msg.data.c_str());
 
     /**
      * The publish() function is how you send messages. The parameter
