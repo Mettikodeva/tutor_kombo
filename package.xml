@@ -3,12 +3,12 @@
 
   <name>tutor</name>
   <version>0.0.0</version>
-  <description>The tutor package</description>
+  <description>ROS Tutorial Kombo</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag -->
   <!-- Example:  -->
   <!-- <maintainer email="jane.doe@example.com">Jane Doe</maintainer> -->
-  <maintainer email="nara@todo.todo">nara</maintainer>
+  <maintainer email="nara.atthama-2020@ftmm.unair.ac.id">nara atthama</maintainer>
 
 
   <!-- One license tag required, multiple allowed, one license per tag -->
