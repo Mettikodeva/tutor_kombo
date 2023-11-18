@@ -6,16 +6,20 @@ import numpy as np
 
 
 def send_image(img, pub):
-    msg_frame = CvBridge().cv2_to_imgmsg(img, encoding="passthrough")
+    bridge = CvBridge()
+    msg_frame = bridge.cv2_to_imgmsg(img, 'bgr8')
     # publish pesan dibawah
     ...
 
 def on_shutdown():
     rospy.loginfo("Shutdown")
-    cap.release()
+    # cap.release()
 
 if __name__ == "__main__":
-    cap = cv2.VideoCapture(0)
+    # cap = cv2.VideoCapture(0)
+    frame = np.empty((480, 640, 3), dtype=np.uint8)
+    cv2.PutText(frame, "Hello World", (10, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 255, 255))
+                   
     
     # write the needed ROS Code here:
     # 1. Initialize the node
@@ -27,7 +31,7 @@ if __name__ == "__main__":
 
 
     while not rospy.is_shutdown():
-        ret, frame = cap.read()
+        # ret, frame = cap.read()
         send_image(frame, pub)
         r.sleep()
     
